@@ -3,11 +3,13 @@
 
 ## 自带中文docker镜像
 ```shell
+docker build -t n8n-chinese .
+
 docker run -it --rm --name n8ntest \
--p 15678:5678 \
+-p 5678:5678 \
 -v ~/.n8n:/home/node/.n8n \
 -e N8N_SECURE_COOKIE=false \
-blowsnow/n8n-chinese
+n8n-chinese
 ```
 
 ## docker安装
