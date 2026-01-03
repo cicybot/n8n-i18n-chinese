@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "npm run i18n:translate",
     "i18n:translate": "node ./script/translate.js"
   },
   "repository": {

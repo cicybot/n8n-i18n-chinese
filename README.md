@@ -1,15 +1,41 @@
 
 # 安装教程
 
+- https://n8n.akashio.com/about
+
+
+## Load Official docker
+
+```shell
+mkdir -p ~/.n8n
+sudo chown -R 1000:1000 ~/.n8n
+
+docker run -it --rm \
+ --name n8n \
+ -d \
+ -p 5678:5678 \
+ -v ~/.n8n:/home/node/.n8n \
+ -v ./dist:/usr/local/lib/node_modules/n8n/node_modules/n8n-editor-ui/dist \
+ -e N8N_DEFAULT_LOCALE=zh-CN \
+ -e GENERIC_TIMEZONE="Asia/Shanghai" \
+ -e TZ="Asia/Shanghai" \
+ -e N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true \
+ -e N8N_RUNNERS_ENABLED=true \
+ docker.n8n.io/n8nio/n8n
+
+```
+
+
 ## 自带中文docker镜像
 ```shell
-docker build -t n8n-chinese .
+
+docker build -t n8n-test .
 
 docker run -it --rm --name n8ntest \
 -p 5678:5678 \
--v ~/.n8n:/home/node/.n8n \
 -e N8N_SECURE_COOKIE=false \
-n8n-chinese
+blowsnow/n8n-chinese
+
 ```
 
 ## docker安装
